@@ -3,6 +3,14 @@
  */
 #include "keymap_common.h"
 
+/**
+    KEYMAP(ESC,    F1,   F2,   F3,   F4,   F5,   F6,   F7,   F8,   F9,  F10,  F11,  F12,  INS,  DEL, \
+           TRNS , TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS,      TRNS, \
+           TRNS  , TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS,           TRNS, \
+           TRNS   , TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS,   TRNS       , TRNS, \
+                 TRNS, TRNS,                TRNS,                    TRNS, TRNS),
+
+*/
 
 #ifdef KEYMAP_SECTION_ENABLE
 const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] __attribute__ ((section (".keymap.keymaps"))) = {
@@ -11,29 +19,29 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
 #endif
     /* Layer 0: Default Layer
      * ,-----------------------------------------------------------.
-     * |Esc|  1|  2|  3|  4|  5|  6|  7|  8|  9|  0|   |   |   |   |
+     * |`  |  1|  2|  3|  4|  5|  6|  7|  8|  9|  0|  -|  =|Del| BS|
      * |-----------------------------------------------------------|
-     * |Tab  |  Q|  W|  E|  R|  T|  Y|  U|  I|  O|  P|   |   |     |
+     * |Tab  |  Q|  W|  E|  R|  T|  Y|  U|  I|  O|  P|  [|  ]|    \|
      * |-----------------------------------------------------------|
-     * |Contro|  A|  S|  D|  F|  G|  H|  J|  K|  L|  ;|  '|        |
+     * |Contro|  A|  S|  D|  F|  G|  H|  J|  K|  L|FN1|  '|Enter   |
      * |-----------------------------------------------------------|
-     * |Shift   |  Z|  X|  C|  V|  B|  N|  M|  ,|  .|  /|Shift |   |
+     * |Shift   |  Z|  X|  C|  V|  B|  N|  M|  ,|  .|  /|Shift |Fn1|
      * `-----------------------------------------------------------'
-     *       |Alt|Fn0  |         Space         |Gui  |   |
+     *       |   |     |         Space         |     |Men|
      *       `-------------------------------------------'
      */
-    KEYMAP(ESC, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   TRNS,TRNS, TRNS,TRNS, \
-           TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   TRNS,TRNS,TRNS,       \
-           LCTL,A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN,QUOT,TRNS,            \
-           LSFT,Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,RSFT,TRNS,            \
-                LALT,FN0,          SPC,                RGUI,TRNS),
+    KEYMAP(GRV,     1,    2,    3,    4,    5,    6,    7,    8,    9,    0, MINS,  EQL,  DEL, BSPC, \
+           TAB  ,    Q,    W,    E,    R,    T,    Y,    U,    I,    O,    P, LBRC, RBRC,      BSLS, \
+           RCTL  ,    A,    S,    D,    F,    G,    H,    J,    K,    L,  FN1, QUOT,            ENT, \
+           LSFT   ,    Z,    X,    C,    V,    B,    N,    M, COMM,  DOT, SLSH,     RSFT     ,  FN1, \
+                 LGUI, LALT,          SPC,                            ENT,  APP),
+
 
     /* Layer 1: HHKB mode (HHKB Fn)
-     * this layer is not up to date
      * ,-----------------------------------------------------------.
-     * |   | F1| F2| F3| F4| F5| F6| F7| F8| F9|F10|F11|F12|Ins|Del|
+     * |Esc| F1| F2| F3| F4| F5| F6| F7| F8| F9|F10|F11|F12|Ins|Del|
      * |-----------------------------------------------------------|
-     * |     |   |   |   |   |   |   |   |Psc|Slk|Pus|Up |   |Backs|
+     * |Caps |   |   |   |   |   |   |   |Psc|Slk|Pus|Up |   |Backs|
      * |-----------------------------------------------------------|
      * |      |VoD|VoU|Mut|   |   |  *|  /|Hom|PgU|Lef|Rig|Enter   |
      * |-----------------------------------------------------------|
@@ -42,11 +50,12 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
      *       |   |     |                       |     |   |
      *       `-------------------------------------------'
      */
-    KEYMAP(PWR, F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12, TRNS, TRNS, \
-           TRNS,GRV,MINS,FN5,FN6,FN7,ESC,HOME,UP,END,PGUP, TRNS, TRNS, TRNS,      \
-           TRNS,EQL,FN8,FN9,FN10,PAST,ENT,LEFT,DOWN,RIGHT,PGDN,TRNS,TRNS,            \
-           TRNS,TRNS,TRNS,LBRC,RBRC,SLSH,BSLS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,            \
-                TRNS,TRNS,          BSPC,               TRNS,TRNS),
+    KEYMAP(ESC,    F1,   F2,   F3,   F4,   F5,   F6,   F7,   F8,   F9,  F10,  F11,  F12, TRNS, TRNS, \
+           CAPS , TRNS, MINS,  FN5,  FN6, TRNS, PGUP, HOME,   UP,  END, TRNS, TRNS, TRNS,      TRNS, \
+           TRNS  , TRNS,  FN8,  FN9, FN10, TRNS, PGDN, LEFT, DOWN, RGHT,  FN1, TRNS,           TRNS, \
+           TRNS   , TRNS, TRNS, LBRC, RBRC, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS,   TRNS       , TRNS, \
+                 TRNS, TRNS,                 ENT,                    TRNS, TRNS),
+
 };
 
 
@@ -91,16 +100,18 @@ const action_t fn_actions[] __attribute__ ((section (".keymap.fn_actions"))) = {
 };
 #else
 const action_t fn_actions[] PROGMEM = {
-    [0]  = ACTION_LAYER_MOMENTARY(1),
-    [1]  = ACTION_LAYER_MOMENTARY(2), // unused
-    [2]  = ACTION_LAYER_MOMENTARY(3), // unused
-    [3]  = ACTION_LAYER_MOMENTARY(4), // unused
-    [4]  = ACTION_LAYER_MOMENTARY(5), // unused
+    [0] = ACTION_DEFAULT_LAYER_SET(0),
+    [1] = ACTION_LAYER_TAP_KEY(1, KC_SCLN),
+//    [2]  = ,
+//    [2]  = ACTION_LAYER_MOMENTARY(3), // unused
+//    [3]  = ACTION_LAYER_MOMENTARY(4), // unused
+//    [4]  = ACTION_LAYER_MOMENTARY(5), // unused
     [5]  = ACTION_MODS_KEY(MOD_LSFT, KC_LBRACKET), // {
     [6]  = ACTION_MODS_KEY(MOD_LSFT, KC_RBRACKET), // }
-    [7]  = ACTION_MODS_KEY(MOD_LSFT, KC_EQUAL),
+//    [7]  = ACTION_MODS_KEY(MOD_LSFT, KC_EQUAL),
     [8]  = ACTION_MODS_KEY(MOD_LSFT, KC_MINUS), // underscore
     [9]  = ACTION_MODS_KEY(MOD_LSFT, KC_9), // (
     [10] = ACTION_MODS_KEY(MOD_LSFT, KC_0), // )
+
 };
 #endif
