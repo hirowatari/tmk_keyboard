@@ -14,7 +14,7 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
               TAB   ,Q   ,W   ,E   ,R   ,T   ,Y   ,U   ,I   ,O   ,P   ,LBRC,RBRC,/*ent*/  \
               LCTL   ,A   ,S   ,D   ,F   ,G   ,H   ,J   ,K   ,L   ,SCLN,QUOT,ENT ,ENT  ,  \
               LSFT    ,Z   ,X   ,C   ,V   ,B   ,N   ,M   ,COMM,DOT ,SLSH,RSFT,UP  ,RSFT,  \
-              LCTL ,FN1 ,NO  ,LALT,LGUI,SPC       ,FN0 ,BSPC,MENU,NO   , LEFT,DOWN,RGHT),
+              LCTL ,FN1 ,NO  ,LALT,LGUI,SPC       ,FN0 ,BSPC,APP ,NO   , LEFT,DOWN,RGHT),
 
     /* Layer 1: Arrows, 6 cluster (){}[]  */
     KEYMAP_JP(ESC ,F1  ,F2  ,F3  ,F4  ,F5  ,F6  ,F7  ,F8  ,F9  ,F10 ,F11 ,F12 ,TRNS,TRNS, \
