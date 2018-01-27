@@ -14,7 +14,7 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
               TAB   ,Q   ,W   ,E   ,R   ,T   ,Y   ,U   ,I   ,O   ,P   ,LBRC,RBRC,/*ent*/  \
               LCTL   ,A   ,S   ,D   ,F   ,G   ,H   ,J   ,K   ,L   ,SCLN,QUOT,ENT ,ENT  ,  \
               LSFT    ,Z   ,X   ,C   ,V   ,B   ,N   ,M   ,COMM,DOT ,SLSH,RSFT,UP  ,RSFT,  \
-              LCTL ,FN1 ,NO  ,LALT,LGUI,SPC       ,FN0 ,BSPC,APP ,NO   , LEFT,DOWN,RGHT),
+              LCTL ,FN1 ,FN2 ,LALT,LGUI,SPC       ,FN0 ,BSPC,APP ,NO   , LEFT,DOWN,RGHT),
 
     /* Layer 1: Arrows, 6 cluster (){}[]  */
     KEYMAP_JP(ESC ,F1  ,F2  ,F3  ,F4  ,F5  ,F6  ,F7  ,F8  ,F9  ,F10 ,F11 ,F12 ,TRNS,TRNS, \
@@ -28,7 +28,14 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
               TRNS  ,TRNS,TRNS,TRNS,VOLU,TRNS,TRNS,HOME,PSCR,SLCK,PAUS,TRNS,TRNS,/*ent*/  \
               TRNS   ,TRNS,TRNS,TRNS,VOLD,TRNS,TRNS,MPLY,MSTP,MPRV,MNXT,TRNS,TRNS,TRNS ,  \
               TRNS    ,TRNS,TRNS,TRNS,MUTE,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,  \
-              TRNS ,TRNS,TRNS,TRNS,TRNS,TRNS      ,TRNS,TRNS,TRNS,TRNS , TRNS,TRNS,TRNS)
+              TRNS ,TRNS,TRNS,TRNS,TRNS,TRNS      ,TRNS,TRNS,TRNS,TRNS , TRNS,TRNS,TRNS),
+
+    /* Layer 3: mouse  */
+    KEYMAP_JP(TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS, \
+              TRNS  ,TRNS,TRNS,TRNS,TRNS,TRNS,WH_L,WH_U,MS_U,WH_D,WH_R,TRNS,TRNS,/*ent*/  \
+              TRNS   ,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,MS_L,MS_D,MS_R,BTN1,TRNS,TRNS,TRNS ,  \
+              TRNS    ,TRNS,TRNS,TRNS,TRNS,BTN3,BTN2,BTN1,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,  \
+              TRNS ,TRNS,TRNS,TRNS,TRNS,BTN1      ,TRNS,TRNS,TRNS,TRNS , TRNS,TRNS,TRNS)
 
 };
 
@@ -42,6 +49,7 @@ const action_t fn_actions[] PROGMEM = {
 #endif
     [0] = ACTION_LAYER_MOMENTARY(1),
     [1] = ACTION_LAYER_MOMENTARY(2),
+    [2] = ACTION_LAYER_TOGGLE(3),
     [20]  = ACTION_MODS_KEY(MOD_LSFT, KC_9),        // (
     [21]  = ACTION_MODS_KEY(MOD_LSFT, KC_0),        // )
     [22]  = ACTION_MODS_KEY(MOD_LSFT, KC_LBRACKET), // {
